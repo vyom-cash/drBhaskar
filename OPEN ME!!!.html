@@ -5,57 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhaskar Sir's Retirement Party</title>
     
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: black;
-        color: white;
-        font-family: Lucida Calligraphy;
-        text-align: center;
-        overflow: hidden;
-    }
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: Lucida Calligraphy;
+            text-align: center;
+            overflow: hidden;
+        }
 
-    .slide {
+        .slide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .slide.fade-out {
+            opacity: 0;
+        }
+
+        img, video {
+            max-width: 90%;
+            max-height: 80vh;
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+
+        audio {
+            display: none;
+        }
+
+        #skipButton {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #skipButton:hover {
+            background-color: #500015;
+        }
+
+       #welcome-screen {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        transition: opacity 1s ease-in-out; /* Transition effect for fade */
-        display: none;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
     }
 
-    .slide.active {
-        display: block;
-        opacity: 1; /* Make the active slide fully visible */
-    }
-
-    /* Optional: You can add a fade-out class if you want to control fading out */
-    .slide.fade-out {
-        opacity: 0;
-    }
-
-    img, video {
-        max-width: 90%;
-        max-height: 80vh;
-    }
-
-    h1, h2 {
-        margin-bottom: 20px;
-    }
-
-    audio {
-        display: none;
-    }
-</style>
+    </style>
 </head>
 
 <body>
 
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <button onclick="startSlideshow()" style="padding: 10px 20px; font-size: 18px;">Start Slideshow</button>
+    </div>
+
     <!-- Background Music -->
-    <audio autoplay loop>
-        <source src="E:\Bhaskar.exe\bhaskar sir\noname.mp3" type="audio/mp3">
+    <audio id="bgm" autoplay loop>
+        <source src="noname.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
@@ -64,151 +98,121 @@
 
     <!-- Group Photos -->
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\starting pics\54.JPG" alt="Group Photo 1">
+        <img src="starting pics\54.JPG" alt="Group Photo 1">
     </div>
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\starting pics\6.JPG" alt="Group Photo 1">
+        <img src="starting pics\6.JPG" alt="Group Photo 1">
     </div>
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\starting pics\8.JPG" alt="Group Photo 1">
+        <img src="starting pics\8.JPG" alt="Group Photo 1">
     </div>
 
     <div class="slide"> <h2>You are an inspiration to all of us....</h2> </div>
 
     <!-- Awards Photos and Videos -->
+    <div class="slide">
+        <video autoplay muted>
+            <source src="Awards\vlc-record-2024-10-22-19h13m30s-29th ANNUAL DAY CELEBRATIONS 2024 DISC - III.mp4" type="video/mp4">
+        </video>
+    </div>
     
-<div class="slide">
-	<video autoplay muted>
-	<source src="E:\Bhaskar.exe\bhaskar sir\Awards\vlc-record-2024-10-22-19h13m30s-29th ANNUAL DAY CELEBRATIONS 2024 DISC - III.mp4" type="video/mp4">
-	</video>
-	</div>
-    
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Awards\13.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Awards\13.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Awards\26.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Awards\26.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Awards\27.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Awards\27.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Awards\28.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Awards\28.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Awards\36.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Awards\36.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Awards\46.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Awards\46.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Awards\49.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Awards\49.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Awards\52.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Awards\52.jpg" alt="Informal Photo 1">
     </div>
-
 
     <div class="slide"> <h2>... But you are so much more than that...</h2> </div>
 
     <!-- Informal Group Pics -->
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\10.jpg" alt="Informal Photo 1">
+        <img src="Group pics - informal\10.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\12.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Group pics - informal\12.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\14.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Group pics - informal\14.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\19.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Group pics - informal\19.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\20.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Group pics - informal\20.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\21.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Group pics - informal\21.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\22.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Group pics - informal\22.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\23.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Group pics - informal\23.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\24.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Group pics - informal\24.jpg" alt="Informal Photo 1">
     </div>
-
-<div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Group pics - informal\25.jpg" alt="Informal Photo 1">
+    <div class="slide">
+        <img src="Group pics - informal\25.jpg" alt="Informal Photo 1">
     </div>
-
 
     <div class="slide"> <h2>You are a dear friend to us!</h2> </div>
 
     <!-- Trips Photos -->
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\1.jpg" alt="Trip Photo 1">
+        <img src="Trips\1.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\2.jpg" alt="Trip Photo 1">
+        <img src="Trips\2.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\7.jpg" alt="Trip Photo 1">
+        <img src="Trips\7.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\9.jpg" alt="Trip Photo 1">
+        <img src="Trips\9.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\11.jpg" alt="Trip Photo 1">
+        <img src="Trips\11.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\16.jpg" alt="Trip Photo 1">
+        <img src="Trips\16.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\18.jpg" alt="Trip Photo 1">
+        <img src="Trips\18.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\37.jpg" alt="Trip Photo 1">
+        <img src="Trips\37.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\38.jpg" alt="Trip Photo 1">
+        <img src="Trips\38.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\39.jpg" alt="Trip Photo 1">
+        <img src="Trips\39.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\40.jpg" alt="Trip Photo 1">
+        <img src="Trips\40.jpg" alt="Trip Photo 1">
     </div>
-
     <div class="slide">
-        <img src="E:\Bhaskar.exe\bhaskar sir\Trips\41.jpg" alt="Trip Photo 1">
+        <img src="Trips\41.jpg" alt="Trip Photo 1">
     </div>
 
     <div class="slide">
@@ -216,179 +220,158 @@
     </div>
 
     <!-- Messages and Final Image -->
-
-<div class="slide">
+    <div class="slide">
         <h1>Messages from ex-Faculty :</h1>
     </div>
 
-    <div class="slide"> <h2>Thanks a lot Bhaskar Sir for guiding me as a lecturer and also as a senior colleague.<br> You were always down to earth and treated everyone with respect.<br> Lucky to be your student and also for sharing lunch and staff room with you.<br> Wish you all the very best. 😊🙏<br>
-Always your student.<br>
-~ Anil</h2> </div>
-
+    <div class="slide"> 
+        <h2>Thanks a lot Bhaskar Sir for guiding me as a lecturer and also as a senior colleague.<br> You were always down to earth and treated everyone with respect.<br> Lucky to be your student and also for sharing lunch and staff room with you.<br> Wish you all the very best. 😊🙏<br>
+        Always your student.<br>
+        ~ Anil</h2> 
+    </div>
 
     <div class="slide">
         <video controls autoplay>
-            <source src="E:\Bhaskar.exe\bhaskar sir\msg fac\VID-20241028-WA0028.mp4" type="video/mp4">
+            <source src="msg fac\VID-20241028-WA0028.mp4" type="video/mp4">
         </video>
     </div>
 
     <div class="slide">
         <video controls autoplay>
-            <source src="E:\Bhaskar.exe\bhaskar sir\msg fac\VID-20241028-WA0029.mp4" type="video/mp4">
+            <source src="msg fac\VID-20241028-WA0029.mp4" type="video/mp4">
         </video>
     </div>
-<div class="slide">
+
+    <div class="slide">
         <h1>Messages from ex-Students</h1>
     </div>
 
-    <div class="slide"> <h2>Bhaskar Sir is a calm, composed and passionate mentor with integrity for everyone.<br> I want to wish him all the best for his second innings in life. Thank you much sir.<br>
-~ Jitendra Kumar Dixit</h2> </div>
+    <div class="slide"> 
+        <h2>Bhaskar Sir is a calm, composed and passionate mentor with integrity for everyone.<br> I want to wish him all the best for his second innings in life. Thank you much sir.<br>
+        ~ Jitendra Kumar Dixit</h2> 
+    </div>
 
-
-    <div class="slide"> <h2>Dear Bhaskar Sir,<br><br>
-
-<p>Congratulations on your retirement! I want to thank you sincerely for the invaluable opportunities and recognition you have shared with me. Your support has truly shaped my growth and opened doors I couldn’t have reached alone. Your mentorship has been a guiding light in my journey, both academically and professionally, and I am incredibly grateful for all you’ve invested in me. As you step into this well-earned next chapter, I hope you find as much joy and fulfillment as you’ve brought to those around you, myself included.</p><br>
-
-Thanks<br>
-~ Kalyan</h2> </div>
+    <div class="slide"> 
+        <h2>Dear Bhaskar Sir,<br><br>
+        <p>Congratulations on your retirement! I want to thank you sincerely for the invaluable opportunities and recognition you have shared with me. Your support has truly shaped my growth and opened doors I couldn’t have reached alone. Your mentorship has been a guiding light in my journey, both academically and professionally, and I am incredibly grateful for all you’ve invested in me. As you step into this new chapter, I hope it brings you the same joy, fulfillment, and inspiration that you’ve brought into so many lives, including mine. Best wishes for a well-deserved retirement filled with wonderful adventures, happiness, and relaxation.<br> ~ Jayant</p></h2>
+    </div>
 
     <div class="slide">
         <video controls autoplay>
-            <source src="E:\Bhaskar.exe\bhaskar sir\msg stu\VID-20241028-WA0027.mp4" type="video/mp4">
+            <source src="msg stu\VID-20241028-WA0027.mp4" type="video/mp4">
         </video>
     </div>
 
     <div class="slide">
         <video controls autoplay>
-            <source src="E:\Bhaskar.exe\bhaskar sir\msg stu\VID-20241028-WA0024.mp4" type="video/mp4">
+            <source src="msg stu\VID-20241028-WA0024.mp4" type="video/mp4">
         </video>
     </div>
 
     <div class="slide">
         <video controls autoplay>
-            <source src="E:\Bhaskar.exe\bhaskar sir\msg stu\VID-20241028-WA0025.mp4" type="video/mp4">
+            <source src="msg stu\VID-20241028-WA0025.mp4" type="video/mp4">
         </video>
     </div>
 
     <div class="slide">
         <video controls autoplay>
-            <source src="E:\Bhaskar.exe\bhaskar sir\msg stu\VID-20241028-WA0026.mp4" type="video/mp4">
+            <source src="msg stu\VID-20241028-WA0026.mp4" type="video/mp4">
         </video>
     </div>
-
 
     <div class="slide">
         <h1>Celebrating 30 Years of Excellence</h1>
-        <img src="E:\Bhaskar.exe\bhaskar sir\17.jpg" alt="Celebration Image">
+        <img src="17.jpg" alt="Celebration Image">
         <h2>Thank you, Bhaskar Sir, for everything!</h2>
     </div>
 
-<script>
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
 
-    // Custom timers for each slide (in milliseconds)
-    const slideDurations = [
-       2000	,
-1000	,
-1000	,
-1000	,
-2000	,
-8500	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-2000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-2000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-1000	,
-2000	,
-1000	,
-7000	,
-45500	,
-57500	,
-1000	,
-5500	,
-10500	,
-12500	,
-12500	,
-41500	,
-52500	,
-1008000	
+        const slideDurations = [2000, 1000, 1000, 1000, 2000, 8500, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 2000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 2000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 2000, 1000, 7000, 45500, 57500, 1000, 5500, 12000, 12500, 12500, 41500, 52500, 45000];
+
+        function startSlideshow() {
+	    console.log("Start button clicked"); // Check if button triggers the function
+	
+	    // Hide welcome screen
+	    document.getElementById("welcome-screen").style.display = "none";
+    
+	    // Start background music
+	    const bgm = document.getElementById("bgm");
+	    if (bgm) {
+	        bgm.play().catch(error => console.log("Audio play error:", error));
+	    }
+	
+	    // Start the slideshow
+	    showSlide(currentSlide);	
+	    startSlideTimer(currentSlide);
+
+	    // Adjust background music volume at specified times
+	    adjustVolume();
+	}
 
 
-    ];
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            const video = slide.querySelector('video'); // Get video element if it exists
-
-            if (i === index) {
-                slide.classList.add('active'); // Show the current slide
-                slide.classList.remove('fade-out'); // Ensure it's not fading out
-                if (video) {
-                    video.currentTime = 0; // Reset video to the start
-                    video.play(); // Play video when the slide becomes active
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                const video = slide.querySelector('video');
+                if (i === index) {
+                    slide.classList.add('active');
+                    slide.classList.remove('fade-out');
+                    if (video) {
+                        video.currentTime = 0;
+                        video.play();
+                    }
+                } else {
+                    slide.classList.remove('active');
+                    slide.classList.add('fade-out');
+                    if (video) {
+                        video.pause();
+                    }
                 }
-            } else {
-                slide.classList.remove('active'); // Hide other slides
-                slide.classList.add('fade-out'); // Apply fade-out effect
-                if (video) {
-                    video.pause(); // Pause video on inactive slides
-                }
-            }
-        });
-    }
+            });
+        }
 
-    function nextSlide() {
-        slides[currentSlide].classList.add('fade-out'); // Add fade-out effect to the current slide
+        function nextSlide() {
+            slides[currentSlide].classList.add('fade-out');
+            setTimeout(() => {
+                currentSlide++;
+                if (currentSlide < slides.length) {
+                    showSlide(currentSlide);
+                    startSlideTimer(currentSlide);
+                } else {
+                    currentSlide = 0;
+                    showSlide(currentSlide);
+                    startSlideTimer(currentSlide);
+                }
+            }, 1000);
+        }
+
+        function startSlideTimer(index) {
+            const duration = slideDurations[index];
+            setTimeout(nextSlide, duration);
+        }
+
+        // Start slideshow on page load
+        //window.onload = startSlideshow;
+
+     function adjustVolume() {
+        const bgm = document.getElementById('bgm');
+        
+        // Reduce volume after 52.5 seconds
         setTimeout(() => {
-            currentSlide++;
-            if (currentSlide < slides.length) {
-                showSlide(currentSlide);
-                startSlideTimer(currentSlide); // Start the timer for the next slide
-            } else {
-                currentSlide = 0; // Loop back to the first slide
-                showSlide(currentSlide);
-                startSlideTimer(currentSlide); // Start the timer for the first slide
-            }
-        }, 1000); // Delay for the duration of the fade-out transition
+            bgm.volume = 0.1;  // Set to a lower volume, e.g., 20%
+        }, 100000);
+
+        // Increase volume after 245 seconds
+        setTimeout(() => {
+            bgm.volume = 1.0;  // Restore to full volume
+        }, 350500);
     }
 
-    function startSlideTimer(index) {
-        const duration = slideDurations[index] || 3000; // Default to 3000ms if not specified
-        setTimeout(nextSlide, duration); // Start timer for the next slide
-    }
-
-    // Start the slideshow
-    showSlide(currentSlide);
-    startSlideTimer(currentSlide); // Start the timer for the first slide
-</script>
+    </script>
 
 </body>
 </html>
